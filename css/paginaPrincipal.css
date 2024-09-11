@@ -185,7 +185,9 @@ nav {
     }
 }
 
-
+a{
+    text-decoration: none;
+}
 .color1 {
     color: var(--color-icono1);
     font-size: 2em;
