@@ -1,33 +1,37 @@
-let body = document.getElementById("cards");
+document.addEventListener('DOMContentLoaded', () => {
+    const cardsContainer = document.getElementById("cards");
+    const searchInput = document.getElementById("searchInput");
 
+    let placesData = [];
 
+    fetch("../js/lugares.json")
+        .then(response => response.json())
+        .then(data => {
+            placesData = data;
+            displayCards(placesData);
+        })
+        .catch(error => console.error('Error al cargar lugares:', error));
 
-fetch("../js/lugares.json")
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-
-        
+    function displayCards(data) {
+        cardsContainer.innerHTML = '';
         data.forEach(e => {
-            console.log(e);
-            document.querySelector(
-                ".cards"
-            ).innerHTML += `
-            
-           
-            
+            cardsContainer.innerHTML += `
                 <div class="card">
-                    <div class="fotoCard"><img src="${e.img}"/></div>
+                    <div class="fotoCard"><img src="${e.img}" alt="${e.nombre}"/></div>
                     <div class="descCard">
-                        <div class="nombreLugar"><h2> ${e.nombre} </h2></div>
-                        <div class="precioLugar"> <h4> $${e.precio}</h4></div>
+                        <div class="nombreLugar"><h2>${e.nombre}</h2></div>
+                        <div class="precioLugar"><h4>$${e.precio}</h4></div>
                     </div>
                 </div>
-                
-            `
-        })
+            `;
+        });
+    }
 
-
-
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredData = placesData.filter(place =>
+            place.nombre.toLowerCase().includes(searchTerm)
+        );
+        displayCards(filteredData);
     });
+});

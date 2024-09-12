@@ -4,28 +4,37 @@ body {
 }
 
 .notifications-header {
-    position: -webkit-sticky; /* Para navegadores Safari */
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
-    background-color: #4CAF50; /* Color de fondo del header */
-    color: white;
+    background: rgba(255, 255, 255, 0.6);
+    color: #000000;
     text-align: center;
     padding: 10px;
     font-size: 20px;
-    z-index: 1000; /* Asegura que el header esté por encima del contenido */
+    z-index: 1000;
+    backdrop-filter: blur(8px); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
 }
-
+a{
+    text-decoration: none; ;
+}
 .notifications-container {
     padding: 20px;
-    background-color: #f4f4f4;
-    height: 100vh; /* Para asegurarnos de que la página sea lo suficientemente larga para ver el sticky */
-    overflow-y: auto; /* Permite el desplazamiento si hay muchas notificaciones */
+    background: url('../img/fotoNotificaciones.png') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
-.notification {
+.notification-card {
+    background: white;
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .notification-icon {
@@ -34,21 +43,21 @@ body {
     margin-right: 10px;
 }
 
-.notification-text {
+.notification-content {
     flex: 1;
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid #ddd;
-    margin: 10px 0;
+.notification-date {
+    font-size: 12px;
+    color: grey;
+    margin-bottom: 5px;
 }
 
-a{
-    text-decoration: none;
+.notification-content p {
+    margin: 0;
 }
+
 nav {
-    
     width: 80%;
     height: 4rem;
     background-color: rgb(236, 236, 236);
@@ -60,17 +69,14 @@ nav {
     justify-content: space-around;
     border-radius: 1rem;
     box-shadow: 0 0 5px black;
+}
 
-    .iconosNav {
-        background-color: rgb(236, 236, 236);
-        color: grey;
-        width: 3rem;
-        height: 3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-
-
-    }
+.iconosNav {
+    background-color: rgb(236, 236, 236);
+    color: grey;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
