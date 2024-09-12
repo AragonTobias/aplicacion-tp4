@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card">
                     <div class="fotoCard"><img src="${e.img}" alt="${e.nombre}"/></div>
                     <div class="descCard">
-                        <div class="nombreLugar"><h2>${e.nombre}</h2></div>
+                        <a href="../views/infoLugar.html"><div class="nombreLugar"><h2>${e.nombre}</h2></div></a>
                         <div class="precioLugar"><h4>$${e.precio}</h4></div>
                     </div>
                 </div>
